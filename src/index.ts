@@ -1,39 +1,10 @@
 
 import * as OBD from 'obd-parser';
-import * as _ from 'lodash';
 import * as _debug from 'debug';
+import * as util from './util';
 import { EventEmitter } from 'events';
 
-const debug = _debug('fake-connection');
-
-function getPidInstances (): Array<OBD.PIDS.PID> {
-  var ps = _.map(
-    _.keys(OBD.PIDS),
-    (p:string) => {
-      if (p === 'PID') {
-        // The base class should not be constructed
-        return null;
-      }
-
-      return new OBD.PIDS[p]();
-    }
-  );
-
-  return _.remove(ps, (pid) => {
-    return pid !== null;
-  });
-}
-
-function getPidByCode (code: string):OBD.PIDS.PID {
-  return _.find(getPidInstances(), (p:OBD.PIDS.PID) => {
-    return p.getPid() === code;
-  });
-}
-
-function getPidFromCommand (command: string) {
-  // e.g from "010C1" pluck "0C"
-  return command.substr(2, 2);
-}
+const debug = _debug(require('../package.json').name);
 
 class Connection extends EventEmitter {
   public ready:boolean = false;
@@ -45,8 +16,8 @@ class Connection extends EventEmitter {
   write (command: string) {
     debug(`received command "${command}"`);
 
-    const pidCode:string = getPidFromCommand(command);
-    const pid = getPidByCode(pidCode);
+    const pidCode:string = util.getPidFromCommand(command);
+    const pid = util.getPidByCode(pidCode);
 
     if (pid) {
       debug(`found pid matching command "${command}"`);

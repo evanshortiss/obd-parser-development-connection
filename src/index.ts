@@ -50,8 +50,16 @@ class Connection extends EventEmitter {
 
     if (pid) {
       debug(`found pid matching command "${command}"`);
-      // e.g "01AA"
-      let ret:string = ['41', pidCode].concat(pid.getRandomBytes()).join('');
+
+      let value:string[] = pid.getRandomBytes();
+
+      if (value.length === 1) {
+        // If just a single value is returned make it a pair, e.g "F" => "0F"
+        value.unshift('0');
+      }
+      
+      // e.g "412FAA" could be a resposne to a fuel level query
+      let ret:string = ['41', pidCode].concat(value).join('');
       
       ret += '\r>';
 

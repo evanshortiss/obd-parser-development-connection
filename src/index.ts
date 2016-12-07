@@ -63,7 +63,7 @@ class Connection extends EventEmitter {
       
       ret += '\r>';
 
-      this.emit('data', ret);
+      this.emit('data', ret.toUpperCase());
     } else {
       debug(`no matching pid for command "${command}"`);
       this.emit('data', `UNKOWN COMMAND STRING "${command}"\r>`);

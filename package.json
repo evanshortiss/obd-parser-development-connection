@@ -1,0 +1,36 @@
+{
+  "name": "obd-parser-fake-connection",
+  "version": "0.1.0",
+  "description": "A fake OBD connection that will respond with canned responses for certain code",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "prepublish": "npm test && npm run compile",
+    "compile": "tsc src/index.ts --declaration --outDir dist/"
+  },
+  "keywords": [
+    "obd",
+    "obd-parser",
+    "parser",
+    "obdii"
+  ],
+  "author": "Evan Shortiss",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "debug": "~2.3.3",
+    "lodash": "~4.17.2"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.29",
+    "@types/lodash": "~4.14.42",
+    "typescript": "~2.0.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanshortiss/obd-parser-fake-connection.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evanshortiss/obd-parser-fake-connection/issues"
+  },
+  "homepage": "https://github.com/evanshortiss/obd-parser-fake-connection#readme"
+}

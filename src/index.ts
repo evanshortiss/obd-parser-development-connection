@@ -24,7 +24,7 @@ class Connection extends EventEmitter {
 
       let value:string[] = pid.getRandomBytes();
 
-      if (value.length === 1) {
+      if (value[0].length === 1) {
         // If just a single value is returned make it a pair, e.g "F" => "0F"
         value.unshift('0');
       }
@@ -33,6 +33,7 @@ class Connection extends EventEmitter {
       let ret:string = ['41', pidCode].concat(value).join('');
       
       ret += '\r>';
+      
 
       this.emit('data', ret.toUpperCase());
     } else {

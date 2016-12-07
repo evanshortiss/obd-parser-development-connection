@@ -1,5 +1,5 @@
 {
-  "name": "obd-parser-fake-connection",
+  "name": "obd-parser-development-connection",
   "version": "0.1.0",
   "description": "A fake connection that can be used to simulate polling for PIDs",
   "main": "dist/index.js",

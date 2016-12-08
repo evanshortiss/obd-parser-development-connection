@@ -29,6 +29,8 @@ annotation and change the _import_ line to _var OBD = require('obd-parser')_.
 
 ## CHANGELOG
 
+0.1.2 - Fix to include dist JS files
+
 0.1.1 - Fix to include dist JS files
 
 0.1.0 - Initial release

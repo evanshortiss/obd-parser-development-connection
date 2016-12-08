@@ -26,3 +26,9 @@ OBD.init(connect)
 
 The above code will work exactly the same as JavaScript, just remove the type
 annotation and change the _import_ line to _var OBD = require('obd-parser')_. 
+
+## CHANGELOG
+
+0.1.1 - Fix to include dist JS files
+
+0.1.0 - Initial release

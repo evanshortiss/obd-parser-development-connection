@@ -1,6 +1,6 @@
 {
   "name": "obd-parser-development-connection",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A fake connection that can be used to simulate polling for PIDs",
   "main": "dist/index.js",
   "scripts": {
@@ -8,6 +8,9 @@
     "prepublish": "npm test && npm run compile",
     "compile": "tsc src/index.ts --declaration --outDir dist/"
   },
+  "files": [
+    "dist/"
+  ],
   "keywords": [
     "obd",
     "obd-parser",

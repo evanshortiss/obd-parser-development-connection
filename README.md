@@ -2,8 +2,6 @@
 A connetion for the *obd-parser* module that is useful when developing. It will
 return random data for any PID being requested.
 
-*NOTE: It only works with the "typescript" branch of obd-parser at present*
-
 ## Usage
 See the _/examples_ folder in *obd-parser* for a full example:
 
@@ -28,6 +26,8 @@ The above code will work exactly the same as JavaScript, just remove the type
 annotation and change the _import_ line to _var OBD = require('obd-parser')_. 
 
 ## CHANGELOG
+
+0.1.3 - Remove comment that is no longer valid
 
 0.1.2 - Fix to include dist JS files
 

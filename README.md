@@ -27,10 +27,12 @@ annotation and change the _import_ line to _var OBD = require('obd-parser')_.
 
 ## CHANGELOG
 
-0.1.3 - Remove comment that is no longer valid
+* 0.2.0 - Add random delay for responses similar to a real car
 
-0.1.2 - Fix to include dist JS files
+* 0.1.3 - Remove comment that is no longer valid
 
-0.1.1 - Fix to include dist JS files
+* 0.1.2 - Fix to include dist JS files
 
-0.1.0 - Initial release
+* 0.1.1 - Fix to include dist JS files
+
+* 0.1.0 - Initial release

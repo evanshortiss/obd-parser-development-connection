@@ -14,6 +14,8 @@ class Connection extends EventEmitter {
   }
 
   write (command: string) {
+    const self = this;
+
     debug(`received command "${command}"`);
 
     const pidCode:string = util.getPidFromCommand(command);
@@ -28,14 +30,15 @@ class Connection extends EventEmitter {
         // If just a single value is returned make it a pair, e.g "F" => "0F"
         value.unshift('0');
       }
-      
+
       // e.g "412FAA" could be a resposne to a fuel level query
       let ret:string = ['41', pidCode].concat(value).join('');
-      
-      ret += '\r>';
-      
 
-      this.emit('data', ret.toUpperCase());
+      ret += '\r>';
+
+      setTimeout(() => {
+        self.emit('data', ret.toUpperCase());
+      }, Math.floor(Math.random() * (60 - 10 + 1)) + 10);
     } else {
       debug(`no matching pid for command "${command}"`);
       this.emit('data', `UNKOWN COMMAND STRING "${command}"\r>`);
@@ -43,7 +46,7 @@ class Connection extends EventEmitter {
   }
 }
 
-// This connection should respond with fake values for recognised codes such 
+// This connection should respond with fake values for recognised codes such
 // as Engine RPM aka "0C", or "010C1" as a full command
 
 export = function (): Function {
